@@ -45,6 +45,7 @@ class CameraView: UIView {
     @objc var scanThrottleDelay = 2000
     @objc var frameColor: UIColor?
     @objc var laserColor: UIColor?
+    @objc var frameHeight: NSNumber? = 200
     // other
     @objc var onOrientationChange: RCTDirectEventBlock?
     @objc var onZoom: RCTDirectEventBlock?
@@ -203,6 +204,10 @@ class CameraView: UIView {
 
         if changedProps.contains("frameColor"), let frameColor {
             scannerInterfaceView.update(frameColor: frameColor)
+        }
+        
+        if changedProps.contains("frameHeight"), let frameHeight {
+            scannerInterfaceView.setFrameHeightWithNumber(frameHeight)
         }
 
         // Others

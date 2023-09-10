@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, SafeAreaView, Animated, StatusBar } from 'react-native';
-import Camera from '../../src/Camera';
-import { CameraApi, CameraType, CaptureData } from '../../src/types';
-import { Orientation } from '../../src';
+import Camera from '../dist/Camera';
+import { CameraApi, CameraType, CaptureData } from '../../dist/types';
+import { Orientation } from '../../dist';
 
 const flashImages = {
   on: require('../images/flashOn.png'),

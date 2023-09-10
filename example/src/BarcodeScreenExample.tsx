@@ -10,9 +10,9 @@ import {
   useWindowDimensions,
   Vibration,
 } from 'react-native';
-import Camera from '../../src/Camera';
-import { CameraApi, CameraType } from '../../src/types';
-import { Orientation } from '../../src';
+import Camera from '../dist/Camera';
+import { CameraApi, CameraType } from '../../dist/types';
+import { Orientation } from '../../dist';
 
 const flashImages = {
   on: require('../images/flashOn.png'),
@@ -38,12 +38,12 @@ const flashArray = [
 const BarcodeExample = ({ onBack }: { onBack: () => void }) => {
   const cameraRef = useRef<CameraApi>(null);
   const [currentFlashArrayPosition, setCurrentFlashArrayPosition] = useState(0);
-  
+
   const [flashData, setFlashData] = useState(flashArray[currentFlashArrayPosition]);
   const [torchMode, setTorchMode] = useState(false);
   // const [ratios, setRatios] = useState([]);
   // const [ratioArrayPosition, setRatioArrayPosition] = useState(-1);
-  
+
   const [cameraType, setCameraType] = useState(CameraType.Back);
   const [barcode, setBarcode] = useState<string>('');
 
@@ -146,6 +146,7 @@ const BarcodeExample = ({ onBack }: { onBack: () => void }) => {
           frameColor="white"
           scanBarcode
           showFrame
+          frameHeight={600}
           onReadCode={(event) => {
             Vibration.vibrate(100);
             setBarcode(event.nativeEvent.codeStringValue);
